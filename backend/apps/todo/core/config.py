@@ -13,7 +13,7 @@ class ServerSettings(BaseSettings):
     PORT: int = 8000
 
 class DatabaseSettings(BaseSettings):
-    DB_URL: str = "localhost"
+    DB_URL: str = "localhost:27017"
     DB_NAME: str = "my_db"
 
 class Settings(CommonSettings, ServerSettings, DatabaseSettings):

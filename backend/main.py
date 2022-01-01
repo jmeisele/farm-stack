@@ -13,12 +13,12 @@ def app_factory() -> FastAPI:
     Returns:
         FastAPI: Our app
     """
-    fast_app = FastAPI(title=settings.APP_NAME, version=settings.VERSION, debug=settings.DEBUG_MODE)
-    fast_app.include_router(api_router, prefix=settings.API_PREFIX)
-    fast_app.add_event_handler("startup", start_app_handler(fast_app))
-    fast_app.add_event_handler("shutdown", stop_app_handler(fast_app))
+    app = FastAPI(title=settings.APP_NAME, version=settings.VERSION, debug=settings.DEBUG_MODE)
+    app.include_router(api_router, prefix=settings.API_PREFIX)
+    app.add_event_handler("startup", start_app_handler(app))
+    app.add_event_handler("shutdown", stop_app_handler(app))
     
-    return fast_app
+    return app
 
 app = app_factory()
 

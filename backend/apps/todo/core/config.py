@@ -1,3 +1,4 @@
+# import os
 from pydantic import BaseSettings
 
 
@@ -5,7 +6,7 @@ class CommonSettings(BaseSettings):
     APP_NAME: str = "FARM Stack"
     DEBUG_MODE: bool = False
     VERSION: str = "1.0.0"
-    API_PREFIX: str = "/api"
+    API_PREFIX: str = "/task"
 
 class ServerSettings(BaseSettings):
     HOST: str = "0.0.0.0"

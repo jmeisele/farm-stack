@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 
 from apps.todo.core.config import settings
@@ -20,3 +21,11 @@ def app_factory() -> FastAPI:
     return fast_app
 
 app = app_factory()
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "main:app",
+        host=settings.HOST,
+        port=settings.PORT,
+        reload=settings.DEBUG_MODE,
+    )

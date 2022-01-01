@@ -1,6 +1,30 @@
 version: "3.1"
 
 services:
+  # frontend:
+  #   container_name: frontend
+  #   restart: always
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   command: npm run start
+
+  backend:
+    container_name: backend
+    restart: always
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: prod
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: pwd
+    command: python3 backend/main.py
+
   mongo:
     image: mongo
     restart: always

@@ -1,9 +1,10 @@
 from typing import List
+
 from fastapi import APIRouter, Body, HTTPException, Request, status
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 
-from models.model import TaskModel, UpdateTaskModel
+from apps.todo.models.model import TaskModel, UpdateTaskModel
 
 router = APIRouter()
 

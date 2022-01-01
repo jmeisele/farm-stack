@@ -3,7 +3,7 @@ from typing import Callable
 from fastapi import FastAPI
 from motor.motor_asyncio import AsyncIOMotorClient
 
-from core.config import settings
+from apps.todo.core.config import settings
 
 
 async def _startup_mongodb_client(app: FastAPI) -> None:

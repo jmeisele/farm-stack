@@ -1,10 +1,9 @@
-import os
-
 from fastapi import FastAPI
 
-from core.config import settings
-from core.event_handlers import start_app_handler, stop_app_handler
-from routes.router import api_router
+from apps.todo.core.config import settings
+from apps.todo.core.event_handlers import start_app_handler, stop_app_handler
+from apps.todo.routes.router import api_router
+
 
 def app_factory() -> FastAPI:
     """

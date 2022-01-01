@@ -21,13 +21,10 @@ services:
     depends_on:
       - mongo
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: pwd
-    command: python3 backend/main.py
+      DB_URL: "mongo:27017"
+      DB_NAME: "test-db"
+    command: python3 main.py
 
   mongo:
     image: mongo
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: pwd

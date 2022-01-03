@@ -1,13 +1,17 @@
 version: "3.1"
 
 services:
-  # frontend:
-  #   container_name: frontend
-  #   restart: always
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile
-  #   command: npm run start
+  frontend:
+    container_name: frontend
+    restart: always
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    command: npm run start
 
   backend:
     container_name: backend
